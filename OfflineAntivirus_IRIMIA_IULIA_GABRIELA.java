@@ -125,30 +125,6 @@ public static void CheckIntegrity(String path,String secretKey,String algorithm,
     FileReader reader = new FileReader(file); //for reading from the Status File
     BufferedReader reader2 = new BufferedReader(reader);
 
-    //acesta varianta nu lua in calcul daca se stergeau sau se adaugau files in root path, dupa ultimul status update
-    /*int i=0;
-    String line = reader2.readLine(); //read the first line from the Status file
-    for (String string : filesWithNewHmacs) {
-        
-        //System.out.println("line read from status file: "+line);
-        if(line.equals(string))
-        {
-            String dataStoredInFile = new String(filesPaths.get(i)+" => "+"OK");
-            printer.println(dataStoredInFile);
-            
-        }
-        else{
-            String dataStoredInFile = new String(filesPaths.get(i)+" => "+"CORRUPTED");
-            printer.println(dataStoredInFile);
-        }
-        i++;
-        if(line != null) {
-            line = reader2.readLine();//read the next line from the status file
-        }
-    }
-    */
-
-    ///*
     //presupun ca inainte de checkintegrity se pot sterge files din root path sau se pot adauga noi files in root path; lucrez doar cu files care inca exista si au HMAC-ul salvat in ultimul status update.txt 
     //pentru fiecare line citit din status update.txt, caut printre pathurile citite la integrity check 
     String line = reader2.readLine();
